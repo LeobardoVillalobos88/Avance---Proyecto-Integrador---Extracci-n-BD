@@ -30,6 +30,7 @@ Key facts and decisions baked into the code and report — keep them consistent 
 - Honest headline: accuracy tops out around **~52%** across all three models (vs. 33% random). The dataset only partially predicts burnout; `Weekly_GenAI_Hours` carries ~80% of the tree's feature importance. Do not inflate these numbers.
 - Best configs found: tree `max_depth=6, min_samples_leaf=50`; KNN `k=101`; SVM `kernel=rbf, C=1, gamma=scale`. Everything uses `random_state=42`, so results are deterministic and the notebook's numbers match the report's tables exactly — **if you change the pipeline, re-run and update both**.
 - Metrics (precision/recall/specificity/F1) are computed **by hand from the confusion matrix** (one-vs-rest), same as the KNN_SVM exercises — preserve that.
+- Report style rules (user-mandated, differ from the KNN_SVM reports): **no em dashes (`---`), no italics (`\textit`/`\emph`), no bibliography/citations**, and the whole document is set in an Arial-like sans font via `\usepackage[scale=0.94]{tgheros}` + `\familydefault=\sfdefault`. Math-mode symbols staying italic is fine.
 - Figures in `latex/img/` are produced by the notebook's plotting cells (same code, saved as PNG). Regenerate them from the notebook if a figure changes.
 
 ### Python environment gotcha (important)

@@ -3,6 +3,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage[spanish,mexico]{babel}
 \usepackage[T1]{fontenc}
+% Fuente sans-serif tipo Arial (TeX Gyre Heros, equivalente libre)
+\usepackage[scale=0.94]{tgheros}
+\renewcommand{\familydefault}{\sfdefault}
 \usepackage{listings}
 \usepackage{hyperref}
 \hypersetup{colorlinks=false}
@@ -104,7 +107,7 @@
 \usepackage{anysize}
 \marginsize{2cm}{2cm}{1cm}{2cm}
 
-\title{Actividad Integradora: Predicción del nivel de burnout estudiantil a partir del uso de IA generativa}
+\title{Actividad Integradora:\\[4pt] Predicción del nivel de burnout estudiantil\\[4pt] a partir del uso de IA generativa}
 
 \author{Equipo 9C}
 
@@ -132,7 +135,7 @@
     top=8pt,
     bottom=8pt
 ]
-\noindent Este trabajo aplica la metodología \textbf{KDD} (\textit{Knowledge Discovery in Databases}) sobre un conjunto de datos de \textbf{50\,000 estudiantes} universitarios que describe sus hábitos de estudio y de uso de inteligencia artificial generativa. El objetivo es construir un modelo supervisado que prediga el \textbf{nivel de burnout} (agotamiento) de un estudiante ---\textit{Low}, \textit{Medium} o \textit{High}--- a partir de esas características, por lo que se trata de un problema de \textbf{clasificación de tres clases}. Tras limpiar y transformar los datos, se compararon tres algoritmos vistos en clase: \textbf{árbol de decisión}, \textbf{K-Vecinos más Cercanos (KNN)} y \textbf{Máquinas de Vectores de Soporte (SVM)}. El mejor resultado lo obtuvo el árbol de decisión, con una exactitud de \textbf{52.48\,\%} y un \textit{Macro} F1 de \textbf{0.5235}, seguido de cerca por SVM (52.12\,\%) y KNN (50.02\,\%). El análisis reveló que la variable más determinante, con mucha diferencia, es el \textbf{número de horas semanales de uso de IA}, que concentra cerca del 80\,\% de la importancia del modelo.
+\noindent Este trabajo aplica la metodología \textbf{KDD} (Knowledge Discovery in Databases) sobre un conjunto de datos de \textbf{50\,000 estudiantes} universitarios que describe sus hábitos de estudio y de uso de inteligencia artificial generativa. El objetivo es construir un modelo supervisado que prediga el \textbf{nivel de burnout} (agotamiento) de un estudiante, ya sea Low, Medium o High, a partir de esas características, por lo que se trata de un problema de \textbf{clasificación de tres clases}. Tras limpiar y transformar los datos, se compararon tres algoritmos vistos en clase: \textbf{árbol de decisión}, \textbf{K-Vecinos más Cercanos (KNN)} y \textbf{Máquinas de Vectores de Soporte (SVM)}. El mejor resultado lo obtuvo el árbol de decisión, con una exactitud de \textbf{52.48\,\%} y un Macro F1 de \textbf{0.5235}, seguido de cerca por SVM (52.12\,\%) y KNN (50.02\,\%). El análisis reveló que la variable más determinante, con mucha diferencia, es el \textbf{número de horas semanales de uso de IA}, que concentra cerca del 80\,\% de la importancia del modelo.
 
 \vspace{0.4cm}
 \textcolor{azulutez}{\textbf{Palabras clave:}} KDD, clasificación multiclase, árbol de decisión, KNN, SVM, burnout estudiantil, IA generativa, matriz de confusión.
@@ -153,10 +156,10 @@
 \subsection{Contexto y objetivo}
 El uso de herramientas de inteligencia artificial generativa (como los asistentes de chat) se ha vuelto parte del día a día de los estudiantes universitarios. Junto con sus beneficios, ha surgido la preocupación por sus efectos en el bienestar y el desempeño académico. En este trabajo se estudia una de esas consecuencias: el \textbf{burnout} o agotamiento estudiantil.
 
-El objetivo es responder, con datos, a la pregunta: \textit{¿es posible predecir el nivel de burnout de un estudiante a partir de sus hábitos de estudio y de uso de IA?} Para ello se plantea un problema de \textbf{clasificación con tres categorías} (nivel de burnout bajo, medio y alto) y se comparan tres algoritmos de aprendizaje supervisado. Todo el desarrollo se organiza bajo la metodología KDD.
+El objetivo es responder, con datos, a la pregunta: ¿es posible predecir el nivel de burnout de un estudiante a partir de sus hábitos de estudio y de uso de IA? Para ello se plantea un problema de \textbf{clasificación con tres categorías} (nivel de burnout bajo, medio y alto) y se comparan tres algoritmos de aprendizaje supervisado. Todo el desarrollo se organiza bajo la metodología KDD.
 
 \subsection{La metodología KDD}
-KDD (\textit{Knowledge Discovery in Databases}) es un proceso ordenado para extraer conocimiento útil a partir de datos en bruto. En este trabajo se recorren sus cinco etapas, que dan estructura al resto del documento:
+KDD (Knowledge Discovery in Databases) es un proceso ordenado para extraer conocimiento útil a partir de datos en bruto. En este trabajo se recorren sus cinco etapas, que dan estructura al resto del documento:
 
 \begin{enumerate}[leftmargin=*]
   \item \textbf{Selección.} Elegir el conjunto de datos y las variables relevantes para el problema (Sección~\ref{sec:seleccion}).
@@ -187,7 +190,7 @@ d(\mathbf{x},\mathbf{x}') = \sqrt{\sum_{j=1}^{p}\left(x_j - x'_j\right)^2}.
 Como esta distancia depende del tamaño de los números, KNN es muy sensible a la escala de las variables, por lo que es indispensable \textbf{estandarizarlas} antes de aplicarlo.
 
 \subsection{Máquinas de Vectores de Soporte (SVM)}
-SVM busca la mejor frontera que separa a las clases, es decir, la que deja \textbf{el mayor margen} posible a ambos lados. Cuando las clases no se pueden separar con una línea recta, usa el \textbf{truco del kernel}: transforma los datos a un espacio de más dimensiones donde sí es posible separarlos. Uno de los kernels más usados es el \textit{Radial Basis Function} (RBF):
+SVM busca la mejor frontera que separa a las clases, es decir, la que deja \textbf{el mayor margen} posible a ambos lados. Cuando las clases no se pueden separar con una línea recta, usa el \textbf{truco del kernel}: transforma los datos a un espacio de más dimensiones donde sí es posible separarlos. Uno de los kernels más usados es el Radial Basis Function (RBF):
 \begin{equation}
 K(\mathbf{x},\mathbf{x}') = \exp\!\left(-\gamma\,\lVert \mathbf{x}-\mathbf{x}' \rVert^2\right), \quad \gamma > 0.
 \label{eq:rbf}
@@ -199,7 +202,7 @@ El parámetro $C$ controla cuánto se penalizan los errores y $\gamma$ qué tan 
 \label{sec:seleccion}
 
 \subsection{Origen y objetivo del análisis}
-El conjunto de datos utilizado es \textbf{\textit{AI Student Impact Dataset}}, obtenido de la plataforma \textbf{Kaggle}. Simula el efecto del uso de IA generativa sobre el desempeño y el bienestar de estudiantes universitarios. Se eligió por cumplir el requisito de tener \textbf{miles de registros} (50\,000) y por incluir una variable de clase clara y de interés actual: el nivel de burnout.
+El conjunto de datos utilizado es \textbf{AI Student Impact Dataset}, obtenido de la plataforma \textbf{Kaggle}. Simula el efecto del uso de IA generativa sobre el desempeño y el bienestar de estudiantes universitarios. Se eligió por cumplir el requisito de tener \textbf{miles de registros} (50\,000) y por incluir una variable de clase clara y de interés actual: el nivel de burnout.
 
 El archivo \texttt{ai\_student\_impact\_dataset.csv} contiene \textbf{50\,000 filas} y \textbf{16 columnas}. Cada fila representa a un estudiante. La variable objetivo es \texttt{Burnout\_Risk\_Level}, y las 15 restantes son las características con las que se intentará predecirla (una de ellas, \texttt{Student\_ID}, es solo un identificador y se descarta).
 
@@ -274,7 +277,7 @@ Skill\_Retention\_Score   & 75.80 & 13.28 & 10.78 & 76.00 & 100.00 \\
 \end{table}
 
 \subsection{Distribución de la variable objetivo}
-La Tabla~\ref{tab:clases} y la Figura~\ref{fig:distribucion} muestran cómo se reparten las tres clases. La clase \textit{Medium} es la más frecuente (42.29\,\%) y \textit{High} la menos común (24.97\,\%). No es un desbalance grave, pero por precaución la evaluación se apoya también en el \textit{Macro} F1, que da el mismo peso a las tres clases y no solo a la más numerosa.
+La Tabla~\ref{tab:clases} y la Figura~\ref{fig:distribucion} muestran cómo se reparten las tres clases. La clase Medium es la más frecuente (42.29\,\%) y High la menos común (24.97\,\%). No es un desbalance grave, pero por precaución la evaluación se apoya también en el Macro F1, que da el mismo peso a las tres clases y no solo a la más numerosa.
 
 \begin{table}[H]
 \centering
@@ -337,7 +340,7 @@ Antes de entrenar los modelos se aplicaron tres transformaciones:
 
 \begin{enumerate}[leftmargin=*]
   \item \textbf{Variable derivada.} Se creó \texttt{GPA\_Change} $=$ \texttt{Post\_Semester\_GPA} $-$ \texttt{Pre\_Semester\_GPA}, que resume si el estudiante mejoró o empeoró su promedio durante el semestre.
-  \item \textbf{Codificación de categóricas.} Las variables de texto se convirtieron a numéricas mediante \textit{one-hot encoding} (una columna binaria por categoría). Tras este paso, el conjunto pasó a tener \textbf{26 variables predictoras}.
+  \item \textbf{Codificación de categóricas.} Las variables de texto se convirtieron a numéricas mediante one-hot encoding (una columna binaria por categoría). Tras este paso, el conjunto pasó a tener \textbf{26 variables predictoras}.
   \item \textbf{División y estandarización.} Los datos se separaron en \textbf{80\,\% para entrenar} (40\,000 ejemplos) y \textbf{20\,\% para probar} (10\,000), de forma \textbf{estratificada} para conservar la proporción de clases. La estandarización se ajustó \textbf{solo con los datos de entrenamiento} y luego se aplicó a los de prueba, para no filtrar información.
 \end{enumerate}
 
@@ -406,18 +409,18 @@ KNN ($k=101$)              & 0.5002 & 0.4770 & 0.07 & 6.10 \\
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.68\textwidth]{comparativa.png}
-\caption{Comparación de exactitud y \textit{Macro} F1 de los tres modelos.}
+\caption{Comparación de exactitud y Macro F1 de los tres modelos.}
 \label{fig:comparativa}
 \end{figure}
 
 Sobre los tiempos, el árbol es el más práctico: entrena y predice casi al instante. KNN casi no tarda en entrenar (solo guarda los datos), pero es lento al predecir porque debe comparar cada caso con todos los ejemplos. SVM es el más costoso de entrenar, razón por la que se trabajó con una muestra.
 
 \begin{nota}[Sobre el nivel de exactitud]
-Un 52\,\% de aciertos puede parecer bajo, pero conviene ponerlo en contexto: al haber \textbf{tres clases}, adivinar al azar acertaría solo alrededor del 33\,\%. Los modelos superan claramente ese punto de partida. Aun así, el techo cercano al 52\,\% ---que se repitió con los tres algoritmos--- indica que el burnout \textbf{solo puede predecirse de forma parcial} con estas variables: buena parte del fenómeno depende de factores personales que el conjunto de datos no captura.
+Un 52\,\% de aciertos puede parecer bajo, pero conviene ponerlo en contexto: al haber \textbf{tres clases}, adivinar al azar acertaría solo alrededor del 33\,\%. Los modelos superan claramente ese punto de partida. Aun así, el techo cercano al 52\,\%, que se repitió con los tres algoritmos, indica que el burnout \textbf{solo puede predecirse de forma parcial} con estas variables: buena parte del fenómeno depende de factores personales que el conjunto de datos no captura.
 \end{nota}
 
 \subsection{Análisis de las matrices de confusión}
-Las Figuras~\ref{fig:cmarbol},~\ref{fig:cmsvm} y~\ref{fig:cmknn} muestran las matrices de confusión de los tres modelos. En todas se repite el mismo patrón: la clase \textit{Medium}, al estar ``en medio'', comparte características con las otras dos y es donde se concentra la mayor confusión. La clase \textit{High} es la que mejor se identifica cuando se predice (alta precisión), aunque muchos de sus casos se escapan hacia \textit{Medium} (baja sensibilidad).
+Las Figuras~\ref{fig:cmarbol},~\ref{fig:cmsvm} y~\ref{fig:cmknn} muestran las matrices de confusión de los tres modelos. En todas se repite el mismo patrón: la clase Medium, al estar ``en medio'', comparte características con las otras dos y es donde se concentra la mayor confusión. La clase High es la que mejor se identifica cuando se predice (alta precisión), aunque muchos de sus casos se escapan hacia Medium (baja sensibilidad).
 
 \begin{figure}[H]
 \centering
@@ -431,7 +434,7 @@ Las Figuras~\ref{fig:cmarbol},~\ref{fig:cmsvm} y~\ref{fig:cmknn} muestran las ma
 \end{figure}
 
 \subsection{Métricas por clase}
-La Tabla~\ref{tab:porclase} desglosa el F1 por clase para cada modelo. Se aprecia que la clase \textit{Medium} es donde el árbol y el SVM se apoyan más, mientras que KNN, con su $k$ grande, tiende a predecir \textit{Medium} en exceso y por eso baja su desempeño en \textit{High}.
+La Tabla~\ref{tab:porclase} desglosa el F1 por clase para cada modelo. Se aprecia que la clase Medium es donde el árbol y el SVM se apoyan más, mientras que KNN, con su $k$ grande, tiende a predecir Medium en exceso y por eso baja su desempeño en High.
 
 \begin{table}[H]
 \centering
@@ -449,7 +452,7 @@ KNN ($k=101$)     & 0.4524 & 0.5522 & 0.4263 \\
 \end{table}
 
 \subsection{Cálculo manual de las métricas}
-Al igual que en las actividades anteriores, las métricas se comprobaron \textbf{a mano} a partir de la matriz de confusión, bajo el esquema \textit{una clase contra el resto}. Para cada clase se definen cuatro cantidades ---verdaderos positivos (TP), falsos negativos (FN), falsos positivos (FP) y verdaderos negativos (TN)--- y se aplican las fórmulas vistas en clase:
+Al igual que en las actividades anteriores, las métricas se comprobaron \textbf{a mano} a partir de la matriz de confusión, bajo el esquema de una clase contra el resto. Para cada clase se definen cuatro cantidades, que son los verdaderos positivos (TP), los falsos negativos (FN), los falsos positivos (FP) y los verdaderos negativos (TN), y con ellas se aplican las fórmulas vistas en clase:
 \begin{equation}
 \text{Precisión} = \frac{TP}{TP+FP}, \qquad
 \text{Sensibilidad} = \frac{TP}{TP+FN}, \qquad
@@ -493,10 +496,10 @@ High   & 1042 & 1455 &  485 & 7018 & 0.6824 & 0.4173 & 0.9354 \\
 Siguiendo la metodología KDD, se logró construir y evaluar un modelo supervisado capaz de predecir el nivel de burnout estudiantil a partir de hábitos de estudio y de uso de IA. Las principales conclusiones son:
 
 \begin{itemize}[leftmargin=*]
-  \item El \textbf{árbol de decisión} ofreció el mejor equilibrio entre desempeño, rapidez e interpretabilidad, con una exactitud de \textbf{52.48\,\%} y un \textit{Macro} F1 de \textbf{0.5235}, apenas por encima de SVM y KNN.
+  \item El \textbf{árbol de decisión} ofreció el mejor equilibrio entre desempeño, rapidez e interpretabilidad, con una exactitud de \textbf{52.48\,\%} y un Macro F1 de \textbf{0.5235}, apenas por encima de SVM y KNN.
   \item El hallazgo más importante del análisis no es tanto el modelo ganador como \textbf{qué variable manda}: el \textbf{número de horas semanales de uso de IA} concentra cerca del 80\,\% de la importancia. Los estudiantes que usan la IA de forma más intensiva tienden a reportar un burnout más alto.
   \item La exactitud, cercana al 52\,\% frente al 33\,\% del azar, muestra que el burnout es \textbf{parcialmente predecible}: estas variables explican una parte del fenómeno, pero no todo. Esto es esperable, ya que el agotamiento también depende de factores personales y de contexto que el conjunto de datos no recoge.
-  \item La clase \textit{Medium} es la más difícil de separar por estar ``en medio'' de las otras dos, y es donde se concentra la mayor parte de los errores de los tres modelos.
+  \item La clase Medium es la más difícil de separar por estar ``en medio'' de las otras dos, y es donde se concentra la mayor parte de los errores de los tres modelos.
 \end{itemize}
 
 En conjunto, el trabajo cumple el objetivo planteado: más allá del porcentaje de aciertos, el mensaje práctico es que el \textbf{uso intensivo de IA generativa es el factor más asociado al agotamiento} de los estudiantes, un resultado que invita a promover un uso más equilibrado de estas herramientas.

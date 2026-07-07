@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.12)  6 JUL 2026 23:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.12)  6 JUL 2026 23:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -82,11 +82,22 @@ LaTeX Encoding Info:    Redeclaring text command \guillemotright (encoding OT1)
  (C:\Users\leonv\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
 )
-(C:\Users\leonv\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
+(C:\Users\leonv\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\tgheros.sty
+Package: tgheros 2009/09/27 v1.2 TeX Gyre Heros as default sans serif family
+
+(C:\Users\leonv\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 (C:\Users\leonv\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks20
 )
+(C:\Users\leonv\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+(C:\Users\leonv\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)))
+(C:\Users\leonv\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
 \lst@mode=\count286
 \lst@gtempboxa=\box53
 \lst@token=\toks21
@@ -125,9 +136,6 @@ Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
 (C:\Users\leonv\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
 Package: iftex 2024/12/12 v1.0g TeX engine tests
 )
-(C:\Users\leonv\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
-Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-)
 (C:\Users\leonv\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
 keys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
@@ -136,9 +144,6 @@ Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
 ty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
 
-(C:\Users\leonv\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
-Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
-)
 (C:\Users\leonv\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
 .sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
@@ -164,10 +169,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (C:\Users\leonv\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettit
 lestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
-
-(C:\Users\leonv\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
-Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
-))
+)
 \c@section@level=\count294
 )
 (C:\Users\leonv\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
@@ -253,7 +255,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip51
 )
-Package hyperref Info: Option `colorlinks' set `false' on input line 8.
+Package hyperref Info: Option `colorlinks' set `false' on input line 11.
 
 (C:\Users\leonv\AppData\Local\Programs\MiKTeX\tex/latex/graphics\lscape.sty
 Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
@@ -879,6 +881,14 @@ Version 1.0, Aug 13, 1994
 \@Topmargin=\dimen298
 \@Bottommargin=\dimen299
 )
+LaTeX Font Info:    Trying to load font information for T1+qhv on input line 11
+5.
+ (C:\Users\leonv\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\t1qhv.fd
+File: t1qhv.fd 2009/09/25 v1.2 font definition file for T1/qhv
+)
+LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
+(Font)              scaled to size 10.29301pt on input line 115.
+
 (C:\Users\leonv\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
@@ -891,28 +901,28 @@ Package babel Info: 'spanish' activates 'spanish' shorthands.
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 112.
-LaTeX Font Info:    ... okay on input line 112.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 112.
-LaTeX Font Info:    ... okay on input line 112.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 112.
-LaTeX Font Info:    ... okay on input line 112.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 112.
-LaTeX Font Info:    ... okay on input line 112.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 112.
-LaTeX Font Info:    ... okay on input line 112.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 112.
-LaTeX Font Info:    ... okay on input line 112.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 112.
-LaTeX Font Info:    ... okay on input line 112.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 112.
-LaTeX Font Info:    ... okay on input line 112.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 112.
-LaTeX Font Info:    ... okay on input line 112.
-LaTeX Info: Redefining \. on input line 112.
-LaTeX Info: Redefining \% on input line 112.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Info: Redefining \. on input line 115.
+LaTeX Info: Redefining \% on input line 115.
 \c@lstlisting=\count361
-Package hyperref Info: Link coloring OFF on input line 112.
+Package hyperref Info: Link coloring OFF on input line 115.
  (main.out) (main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
@@ -938,6 +948,16 @@ File: portada/logo_utez.png Graphic file (type png)
 <use portada/logo_utez.png>
 Package pdftex.def Info: portada/logo_utez.png  used on input line 23.
 (pdftex.def)             Requested size: 284.52756pt x 124.07224pt.
+LaTeX Font Info:    Font shape `T1/qhv/m/sc' will be
+(Font)              scaled to size 10.29301pt on input line 29.
+LaTeX Font Info:    Font shape `T1/qhv/m/sc' will be
+(Font)              scaled to size 13.53603pt on input line 29.
+LaTeX Font Info:    Font shape `T1/qhv/m/sc' will be
+(Font)              scaled to size 11.28003pt on input line 30.
+LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
+(Font)              scaled to size 19.49565pt on input line 45.
+LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
+(Font)              scaled to size 19.49565pt on input line 45.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 76.
 
 
@@ -950,10 +970,27 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 76.
 (C:\Users\leonv\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
+LaTeX Font Info:    Font shape `T1/qhv/m/sc' will be
+(Font)              scaled to size 7.52002pt on input line 76.
+LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
+(Font)              scaled to size 10.29301pt on input line 80.
+
 [1
 
-{C:/Users/leonv/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./portada/lo
-go_utez.png>]) [1] (main.toc
+{C:/Users/leonv/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/leon
+v/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec-sc.enc}{C:/Users/
+leonv/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc} <./porta
+da/logo_utez.png>])
+LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
+(Font)              scaled to size 11.28003pt on input line 137.
+LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
+(Font)              scaled to size 11.28003pt on input line 137.
+ [1]
+LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
+(Font)              scaled to size 13.53603pt on input line 146.
+LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
+(Font)              scaled to size 13.53603pt on input line 146.
+ (main.toc
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 )
@@ -961,14 +998,24 @@ LaTeX Info: Redefining \% on input line 1.
 \openout5 = `main.toc'.
 
  [2]
+LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
+(Font)              scaled to size 7.52002pt on input line 175.
+LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
+(Font)              scaled to size 5.64001pt on input line 175.
+
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.179 \end{nota}
+l.182 \end{nota}
                  [1]
-Overfull \hbox (18.11877pt too wide) in paragraph at lines 230--230
-[]|\T1/cmr/m/n/10 Anxiety_Level_During_Exams|  
+LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
+(Font)              scaled to size 9.40002pt on input line 216.
+LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
+(Font)              scaled to size 9.40002pt on input line 219.
+
+Overfull \hbox (2.46645pt too wide) in paragraph at lines 233--233
+[]|\T1/qhv/m/n/10 Anxiety_Level_During_Exams|  
  []
 
 [2] [3
@@ -976,12 +1023,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.255 
+l.258 
       ]
-<img/distribucion_clases.png, id=204, 397.485pt x 289.08pt>
+<img/distribucion_clases.png, id=194, 397.485pt x 289.08pt>
 File: img/distribucion_clases.png Graphic file (type png)
 <use img/distribucion_clases.png>
-Package pdftex.def Info: img/distribucion_clases.png  used on input line 298.
+Package pdftex.def Info: img/distribucion_clases.png  used on input line 301.
 (pdftex.def)             Requested size: 250.24199pt x 181.99785pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -991,23 +1038,25 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.302 
+l.305 
       
 pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.302 
+l.305 
       ]
-<img/boxplot_genai.png, id=217, 433.62pt x 303.534pt>
+<img/boxplot_genai.png, id=207, 433.62pt x 303.534pt>
 File: img/boxplot_genai.png Graphic file (type png)
 <use img/boxplot_genai.png>
-Package pdftex.def Info: img/boxplot_genai.png  used on input line 328.
+Package pdftex.def Info: img/boxplot_genai.png  used on input line 331.
 (pdftex.def)             Requested size: 235.22807pt x 164.66086pt.
-<img/correlacion.png, id=218, 542.025pt x 433.62pt>
+LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
+(Font)              scaled to size 8.46002pt on input line 331.
+<img/correlacion.png, id=208, 542.025pt x 433.62pt>
 File: img/correlacion.png Graphic file (type png)
 <use img/correlacion.png>
-Package pdftex.def Info: img/correlacion.png  used on input line 330.
+Package pdftex.def Info: img/correlacion.png  used on input line 333.
 (pdftex.def)             Requested size: 235.22807pt x 188.17987pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1017,103 +1066,103 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.334 
+l.337 
       
 pdfTeX warning (ext4): destination with the same identifier (name{table.4}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.334 
-       <./img/distribucion_clases.png>]
-Underfull \vbox (badness 2495) has occurred while \output is active []
-
- [6
+l.337 
+       <./img/distribucion_clases.png>] [6
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.354 
-       <./img/boxplot_genai.png> <./img/correlacion.png>]
-<img/importancia.png, id=239, 505.89pt x 303.534pt>
+l.360 \end{nota}
+                 <./img/boxplot_genai.png> <./img/correlacion.png>]
+<img/importancia.png, id=228, 505.89pt x 303.534pt>
 File: img/importancia.png Graphic file (type png)
 <use img/importancia.png>
-Package pdftex.def Info: img/importancia.png  used on input line 364.
+Package pdftex.def Info: img/importancia.png  used on input line 367.
 (pdftex.def)             Requested size: 360.34908pt x 216.21463pt.
+<img/seleccion_k.png, id=230, 469.755pt x 289.08pt>
+File: img/seleccion_k.png Graphic file (type png)
+<use img/seleccion_k.png>
+Package pdftex.def Info: img/seleccion_k.png  used on input line 377.
+(pdftex.def)             Requested size: 340.32544pt x 209.42986pt.
 
-Underfull \vbox (badness 6461) has occurred while \output is active []
+Underfull \vbox (badness 1448) has occurred while \output is active []
 
  [7
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.371 
+l.381 
        <./img/importancia.png>]
-<img/seleccion_k.png, id=247, 469.755pt x 289.08pt>
-File: img/seleccion_k.png Graphic file (type png)
-<use img/seleccion_k.png>
-Package pdftex.def Info: img/seleccion_k.png  used on input line 374.
-(pdftex.def)             Requested size: 340.32544pt x 209.42986pt.
+<img/comparativa.png, id=240, 505.89pt x 303.534pt>
+File: img/comparativa.png Graphic file (type png)
+<use img/comparativa.png>
+Package pdftex.def Info: img/comparativa.png  used on input line 411.
+(pdftex.def)             Requested size: 340.32544pt x 204.2004pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 3942) has occurred while \output is active []
 
  [8
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.405 
-       <./img/seleccion_k.png>]
-<img/comparativa.png, id=258, 505.89pt x 303.534pt>
-File: img/comparativa.png Graphic file (type png)
-<use img/comparativa.png>
-Package pdftex.def Info: img/comparativa.png  used on input line 408.
-(pdftex.def)             Requested size: 340.32544pt x 204.2004pt.
-<img/cm_arbol.png, id=262, 346.896pt x 289.08pt>
-File: img/cm_arbol.png Graphic file (type png)
-<use img/cm_arbol.png>
-Package pdftex.def Info: img/cm_arbol.png  used on input line 424.
-(pdftex.def)             Requested size: 160.15854pt x 133.46361pt.
-<img/cm_svm.png, id=263, 346.896pt x 289.08pt>
-File: img/cm_svm.png Graphic file (type png)
-<use img/cm_svm.png>
-Package pdftex.def Info: img/cm_svm.png  used on input line 426.
-(pdftex.def)             Requested size: 160.15854pt x 133.46361pt.
-<img/cm_knn.png, id=264, 346.896pt x 289.08pt>
-File: img/cm_knn.png Graphic file (type png)
-<use img/cm_knn.png>
-Package pdftex.def Info: img/cm_knn.png  used on input line 428.
-(pdftex.def)             Requested size: 160.15854pt x 133.46361pt.
- [9
+l.415 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.432 
-      
+l.415 
+       <./img/seleccion_k.png>]
+<img/cm_arbol.png, id=251, 346.896pt x 289.08pt>
+File: img/cm_arbol.png Graphic file (type png)
+<use img/cm_arbol.png>
+Package pdftex.def Info: img/cm_arbol.png  used on input line 427.
+(pdftex.def)             Requested size: 160.15854pt x 133.46361pt.
+<img/cm_svm.png, id=252, 346.896pt x 289.08pt>
+File: img/cm_svm.png Graphic file (type png)
+<use img/cm_svm.png>
+Package pdftex.def Info: img/cm_svm.png  used on input line 429.
+(pdftex.def)             Requested size: 160.15854pt x 133.46361pt.
+<img/cm_knn.png, id=253, 346.896pt x 289.08pt>
+File: img/cm_knn.png Graphic file (type png)
+<use img/cm_knn.png>
+Package pdftex.def Info: img/cm_knn.png  used on input line 431.
+(pdftex.def)             Requested size: 160.15854pt x 133.46361pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [9
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.432 
+l.435 
        <./img/comparativa.png>] [10
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.473 
+l.476 
       
 pdfTeX warning (ext4): destination with the same identifier (name{table.6}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.473 
+l.476 
        <./img/cm_arbol.png> <./img/cm_svm.png> <./img/cm_knn.png>] [11
 pdfTeX warning (ext4): destination with the same identifier (name{table.7}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.504 \end{document}
+l.507 \end{document}
                     ] (main.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
@@ -1126,44 +1175,31 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 14168196906F7B986F703057F2A365A4;5159.
  ) 
 Here is how much of TeX's memory you used:
- 28747 strings out of 467871
- 563527 string characters out of 5418376
- 987055 words of memory out of 5000000
- 57071 multiletter control sequences out of 15000+600000
- 653747 words of font info for 105 fonts, out of 8000000 for 9000
+ 28832 strings out of 467871
+ 565409 string characters out of 5418376
+ 988644 words of memory out of 5000000
+ 57162 multiletter control sequences out of 15000+600000
+ 692958 words of font info for 104 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,11n,108p,1195b,973s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\leonv\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm
-0900.pk> <C:\Users\leonv\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
-0\ecrm1000.pk> <C:\Users\leonv\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
-/dpi600\ecbx1000.pk> <C:\Users\leonv\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
-pen/ec/dpi600\ectt1095.pk> <C:\Users\leonv\AppData\Local\MiKTeX\fonts/pk/ljfour
-/jknappen/ec/dpi600\ecbi1095.pk> <C:\Users\leonv\AppData\Local\MiKTeX\fonts/pk/
-ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\leonv\AppData\Local\MiKTeX\fon
-ts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\leonv\AppData\Local\MiKT
-eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\leonv\AppData\Loca
-l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\leonv\AppDat
-a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\leonv\
-AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc0800.pk> <C:\Users\
-leonv\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1095.pk> <C:\
-Users\leonv\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk
-> <C:\Users\leonv\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1
-200.pk> <C:\Users\leonv\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600
-\eccc1440.pk><C:/Users/leonv/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmbx10.pfb><C:/Users/leonv/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmex10.pfb><C:/Users/leonv/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/leonv/AppData/Local/Programs/
-MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/leonv/AppData/Local/P
-rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/leonv/AppData
-/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/leonv
-/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/User
-s/leonv/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><
-C:/Users/leonv/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cms
-y10.pfb><C:/Users/leonv/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
-ts/cm/cmsy8.pfb>
-Output written on main.pdf (14 pages, 765466 bytes).
+ 99i,11n,108p,1153b,973s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\leonv\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt
+1095.pk><C:/Users/leonv/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmbx10.pfb><C:/Users/leonv/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmex10.pfb><C:/Users/leonv/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmmi10.pfb><C:/Users/leonv/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/leonv/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/leonv/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/leonv/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/leo
+nv/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Us
+ers/leonv/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.p
+fb><C:/Users/leonv/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmsy8.pfb><C:/Users/leonv/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex
+-gyre/qhvb.pfb><C:/Users/leonv/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/tex-gyre/qhvr.pfb>
+Output written on main.pdf (14 pages, 636361 bytes).
 PDF statistics:
- 966 PDF objects out of 1000 (max. 8388607)
+ 390 PDF objects out of 1000 (max. 8388607)
  71 named destinations out of 1000 (max. 500000)
  271 words of extra memory for PDF output out of 10000 (max. 10000000)
 
