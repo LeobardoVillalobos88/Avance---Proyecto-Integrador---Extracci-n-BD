@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1783442936.11193 "main.tex" "main.pdf" "main" 1783442939.65742 0
+["pdflatex"] 1783443206.6194 "main.tex" "main.pdf" "main" 1783443209.9295 0
   "C:/Users/pepit/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1783413154.055 121421 986c656c18d5dae14116b93751df729f ""
   "C:/Users/pepit/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ectt1095.pk" 1783413159.34437 21972 4df38280501b14baedc37511ee2cbc30 ""
   "C:/Users/pepit/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1782447323.34596 13333528 727cea1461d9e208e576e50a7a89e1ba ""
@@ -217,10 +217,10 @@
   "img/distribucion_clases.png" 1783401041.10955 25738 956f4cdc2f9a047e906c042a304005a8 ""
   "img/importancia.png" 1783401041.1156 48724 50bc05c58388cddeac95a1a3886c997b ""
   "img/seleccion_k.png" 1783401041.11731 39123 9f241d95465d9ccae2df83ed42fc08a7 ""
-  "main.aux" 1783442939.07409 10117 a71d6311d31d23778ad5c18a216cdfc2 "pdflatex"
-  "main.out" 1783442939.1148 5121 a0b57f9a621b2082c185eee37e80095b "pdflatex"
-  "main.tex" 1783442922.94276 29207 b38d84158f62ea166685d525938b6262 ""
-  "main.toc" 1783442939.1328 2394 d37ae3cc2c35ee89f1e165de57dff623 "pdflatex"
+  "main.aux" 1783443209.37647 10117 a71d6311d31d23778ad5c18a216cdfc2 "pdflatex"
+  "main.out" 1783443209.40542 5121 a0b57f9a621b2082c185eee37e80095b "pdflatex"
+  "main.tex" 1783443198.95892 29192 f8e1735e1c2f6109e5d72c46b3883e48 ""
+  "main.toc" 1783443209.40908 2394 d37ae3cc2c35ee89f1e165de57dff623 "pdflatex"
   "portada/logo_utez.png" 1783401041.14554 43010 65f1947e5d89c1b38f45bcdda588bf12 ""
   "portada/title.tex" 1783401041.14654 2285 9a2599d7d3af2bfc9b7aa8a79d726665 ""
   (generated)
