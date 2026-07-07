@@ -253,6 +253,22 @@ La primera revisión de calidad arrojó un conjunto en muy buen estado:
 
 Al no haber datos faltantes ni duplicados, no fue necesario imputar ni eliminar registros; el conjunto quedó en \textbf{50\,000 filas} y \textbf{15 columnas} útiles.
 
+Las Figuras~\ref{fig:dfantes} y~\ref{fig:dfdespues} muestran una vista de las primeras filas del dataframe antes y después de este paso: la columna \texttt{Student\_ID}, al ser solo un identificador sin valor predictivo, desaparece del conjunto tras la limpieza.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{df_antes_limpieza.png}
+\caption{Primeras filas del dataframe original, antes de la limpieza.}
+\label{fig:dfantes}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{df_despues_limpieza.png}
+\caption{Primeras filas del dataframe después de eliminar \texttt{Student\_ID}.}
+\label{fig:dfdespues}
+\end{figure}
+
 \subsection{Estadísticas descriptivas}
 La Tabla~\ref{tab:descriptivas} muestra las estadísticas de las principales variables numéricas. Destaca que las horas semanales de IA tienen un rango muy amplio (de 0 a 40) y una media de 8.4 horas, mientras que el promedio académico sube ligeramente entre el inicio y el fin del semestre (de 3.15 a 3.35 en promedio).
 
@@ -451,8 +467,8 @@ KNN ($k=101$)     & 0.4524 & 0.5522 & 0.4263 \\
 \end{tabular}
 \end{table}
 
-\subsection{Cálculo manual de las métricas}
-Al igual que en las actividades anteriores, las métricas se comprobaron \textbf{a mano} a partir de la matriz de confusión, bajo el esquema de una clase contra el resto. Para cada clase se definen cuatro cantidades, que son los verdaderos positivos (TP), los falsos negativos (FN), los falsos positivos (FP) y los verdaderos negativos (TN), y con ellas se aplican las fórmulas vistas en clase:
+\subsection{Cálculo de las métricas}
+Las métricas de la Tabla~\ref{tab:porclase} se obtienen a partir de la matriz de confusión, bajo el esquema de una clase contra el resto. Para cada clase se definen cuatro cantidades, que son los verdaderos positivos (TP), los falsos negativos (FN), los falsos positivos (FP) y los verdaderos negativos (TN), y con ellas se aplican las siguientes fórmulas:
 \begin{equation}
 \text{Precisión} = \frac{TP}{TP+FP}, \qquad
 \text{Sensibilidad} = \frac{TP}{TP+FN}, \qquad

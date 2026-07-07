@@ -23,5 +23,5 @@
 \contentsline {subsection}{\numberline {5.1}Comparación de desempeño}{8}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}Análisis de las matrices de confusión}{9}{subsection.5.2}%
 \contentsline {subsection}{\numberline {5.3}Métricas por clase}{10}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Cálculo manual de las métricas}{10}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.4}Cálculo de las métricas}{10}{subsection.5.4}%
 \contentsline {section}{\numberline {6}Conclusiones}{11}{section.6}%
