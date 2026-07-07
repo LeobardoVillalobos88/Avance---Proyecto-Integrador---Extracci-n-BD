@@ -1,0 +1,284 @@
+\documentclass[11pt,letterpaper,twoside]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,mexico]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+\usepackage{hyperref}
+\hypersetup{colorlinks=false}
+\usepackage{lscape}
+\usepackage{subfigure}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{float}
+\usepackage[colorinlistoftodos]{todonotes}
+
+% Paquetes adicionales para mejorar portada e introducción
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable,theorems}
+\usepackage{tikz}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{colortbl}
+
+% Ruta de las figuras generadas por el script de Python
+\graphicspath{{img/}}
+
+% Definición de colores institucionales
+\definecolor{azulutez}{RGB}{0,51,102}
+\definecolor{grisinstitucional}{RGB}{89,89,89}
+\definecolor{fondoclaro}{RGB}{245,247,250}
+\definecolor{verderesultado}{RGB}{0,102,51}
+\definecolor{naranjaejercicio}{RGB}{204,102,0}
+
+% Definición de entornos tcolorbox
+
+\newtcolorbox[auto counter,number within=section]{definicion}[1][]{
+    enhanced, colback=fondoclaro, colframe=azulutez, coltitle=white,
+    fonttitle=\bfseries, title=Definición~\thetcbcounter\ifstrempty{#1}{}{: #1},
+    boxrule=1pt, arc=2mm, left=8pt, right=8pt, top=6pt, bottom=6pt, breakable
+}
+
+\newtcolorbox[auto counter,number within=section]{teorema}[1][]{
+    enhanced, colback=fondoclaro, colframe=grisinstitucional, coltitle=white,
+    fonttitle=\bfseries, title=Teorema~\thetcbcounter\ifstrempty{#1}{}{: #1},
+    boxrule=1pt, arc=2mm, left=8pt, right=8pt, top=6pt, bottom=6pt, breakable
+}
+
+\newtcolorbox[auto counter,number within=section]{ejercicio}[1][]{
+    enhanced, colback=white, colframe=naranjaejercicio, coltitle=white,
+    fonttitle=\bfseries, title=Ejercicio~\thetcbcounter\ifstrempty{#1}{}{: #1},
+    boxrule=1pt, arc=2mm, left=8pt, right=8pt, top=6pt, bottom=6pt, breakable
+}
+
+\newtcolorbox[auto counter,number within=section]{problema}[1][]{
+    enhanced, colback=white, colframe=azulutez, coltitle=white,
+    fonttitle=\bfseries, title=Problema~\thetcbcounter\ifstrempty{#1}{}{#1},
+    boxrule=1pt, arc=2mm, left=8pt, right=8pt, top=6pt, bottom=6pt, breakable
+}
+
+\newtcolorbox{resultado}{
+    enhanced, colback=verderesultado!5, colframe=verderesultado,
+    boxrule=1.5pt, arc=2mm, left=8pt, right=8pt, top=6pt, bottom=6pt
+}
+
+\newtcolorbox{nota}[1][]{
+    enhanced, colback=fondoclaro, colframe=grisinstitucional!50,
+    coltitle=grisinstitucional, fonttitle=\bfseries,
+    title=\ifstrempty{#1}{Nota}{#1},
+    boxrule=0.5pt, arc=2mm, left=8pt, right=8pt, top=6pt, bottom=6pt, breakable
+}
+
+\newtcolorbox{tecnica}[1][]{
+    enhanced, colback=azulutez!5, colframe=azulutez!70, coltitle=azulutez,
+    fonttitle=\bfseries, title=\ifstrempty{#1}{Técnica}{#1},
+    boxrule=0.5pt, arc=2mm, left=8pt, right=8pt, top=6pt, bottom=6pt, breakable
+}
+
+\usepackage{anysize}
+\marginsize{2cm}{2cm}{1cm}{2cm}
+
+% Holgura para evitar desbordes de línea con términos en inglés
+\emergencystretch=3em
+\hyphenation{hi-per-pa-rá-me-tros con-fi-gu-ra-cio-nes}
+
+\title{T4. Optimización de modelos}
+
+\author{Leobardo Daniel Bertadillo Villalobos}
+
+\renewcommand{\baselinestretch}{1.15}
+\begin{document}
+\parindent=0mm
+\input{portada/title.tex}
+\newpage
+
+\setcounter{page}{1}
+\pagenumbering{roman}
+
+% Resumen
+\begin{tcolorbox}[
+    enhanced, colback=fondoclaro, colframe=azulutez, coltitle=white,
+    fonttitle=\large\bfseries, title=Resumen, boxrule=1.5pt, arc=3mm,
+    left=10pt, right=10pt, top=8pt, bottom=8pt
+]
+\noindent Este reporte investiga en qué consiste la \textbf{optimización de modelos supervisados} y la aplica a tres clasificadores (KNN, SVM y Árbol de Decisión) sobre el conjunto de datos Iris. La idea es partir de los modelos con sus valores por defecto (la \textbf{línea base}) y mejorarlos ajustando sus \textbf{hiperparámetros} mediante búsqueda en rejilla con validación cruzada, para luego comparar cómo cambia su desempeño. Los resultados muestran que la optimización mejora claramente a KNN (de \textbf{91.11\%} a \textbf{95.56\%} de exactitud) y, sobre todo, al Árbol de Decisión (de \textbf{91.11\%} a \textbf{97.78\%}) al limitar su profundidad para evitar el sobreajuste; SVM, que ya partía de un buen desempeño, se mantiene en \textbf{93.33\%}. Se concluye que la optimización es muy útil, aunque su efecto depende del modelo y de qué tan ajustada estaba ya su configuración inicial.
+
+\vspace{0.4cm}
+\textcolor{azulutez}{\textbf{Palabras clave:}} optimización de modelos, hiperparámetros, búsqueda en rejilla, validación cruzada, sobreajuste, KNN, SVM, árbol de decisión.
+\end{tcolorbox}
+\newpage
+
+\renewcommand{\contentsname}{Índice}
+\tableofcontents
+\newpage
+
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+% ======================================================================
+\section{Introducción}
+\label{sec:introduccion}
+La clasificación de flores del conjunto Iris a partir de las medidas de sus pétalos y sépalos es un problema clásico para comparar algoritmos de aprendizaje supervisado. Un modelo, sin embargo, casi nunca da su mejor resultado con la configuración inicial: la mayoría de los algoritmos tienen ``perillas'' que se pueden ajustar para que aprendan mejor. A ese proceso de ajuste se le llama \textbf{optimización de modelos}.
+
+% ======================================================================
+\section{Investigación}
+\label{sec:marco}
+
+\subsection{¿Qué es la optimización de modelos supervisados?}
+En el aprendizaje supervisado un modelo aprende a partir de ejemplos ya etiquetados para luego predecir la etiqueta de casos nuevos. \textbf{Optimizar} un modelo significa buscar la configuración con la que obtiene su mejor desempeño posible, sin memorizar los datos de entrenamiento ni fallar con datos nuevos \cite{hastie2009elements,geron2019hands}. En la práctica, esto consiste sobre todo en elegir bien sus hiperparámetros y en validar correctamente esa elección.
+
+\begin{definicion}[Parámetros e hiperparámetros]
+Los \textbf{parámetros} son los valores que el modelo aprende solo durante el entrenamiento (por ejemplo, los cortes internos de un árbol). Los \textbf{hiperparámetros}, en cambio, se fijan antes de entrenar y controlan cómo aprende el modelo: el número de vecinos $k$ en KNN, los valores de $C$ y $\gamma$ en SVM, o la profundidad máxima de un árbol. La optimización trabaja justamente sobre estos últimos \cite{probst2019tunability}.
+\end{definicion}
+
+\subsection{El problema del sobreajuste}
+La meta de un modelo no es acertar en los datos que ya conoce, sino \textbf{generalizar} a datos nuevos. Si un modelo se ajusta demasiado a los datos de entrenamiento, aprende hasta el ruido y falla con casos nuevos: a esto se le llama \textbf{sobreajuste} (``overfitting''). El caso contrario, un modelo demasiado simple que no capta los patrones, se llama \textbf{subajuste} (``underfitting'') \cite{james2013introduction}. Un ejemplo claro es el árbol de decisión: si se le deja crecer sin límite, memoriza el entrenamiento; limitar su profundidad lo obliga a quedarse con las reglas más generales \cite{geron2019hands}. Una buena optimización busca el punto medio entre ambos extremos.
+
+\subsection{Validación cruzada}
+Para elegir hiperparámetros sin hacer trampa no se deben usar los datos de prueba. La técnica más común es la \textbf{validación cruzada de $k$ particiones} (``k-fold cross-validation''): el conjunto de entrenamiento se divide en $k$ partes, se entrena con $k-1$ y se evalúa con la restante, repitiendo el proceso $k$ veces y promediando el resultado \cite{james2013introduction}. Así se obtiene una estimación más confiable del desempeño y se reduce el riesgo de elegir una configuración por suerte.
+
+\subsection{Métodos de búsqueda de hiperparámetros}
+Existen varias formas de explorar las combinaciones posibles de hiperparámetros \cite{bergstra2012random,geron2019hands}:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Búsqueda en rejilla (``Grid Search'').} Se define una lista de valores para cada hiperparámetro y se prueban todas las combinaciones. Es exhaustiva y sencilla, pero su costo crece rápido al aumentar los parámetros.
+  \item \textbf{Búsqueda aleatoria (``Random Search'').} Se prueban combinaciones elegidas al azar. Suele encontrar buenas configuraciones con menos pruebas, sobre todo cuando hay muchos hiperparámetros \cite{bergstra2012random}.
+  \item \textbf{Optimización bayesiana.} Usa los resultados ya obtenidos para decidir de forma inteligente qué combinación probar a continuación, siendo más eficiente en problemas grandes.
+\end{itemize}
+Se emplea \textbf{búsqueda en rejilla con validación cruzada}, por ser clara y adecuada al tamaño del problema.
+
+\begin{nota}[El papel del preprocesamiento]
+Optimizar no es solo ajustar hiperparámetros. Un paso previo igual de importante es preparar los datos: por ejemplo, \textbf{estandarizar} las variables para que todas estén en una escala comparable. KNN y SVM se basan en distancias, así que sin este paso su desempeño cae \cite{geron2019hands}. El árbol de decisión es una excepción: no le afecta la escala, porque decide con cortes sobre cada variable por separado. Aun así, en este experimento se usa el mismo preprocesamiento para los tres modelos, de modo que la comparación refleje solo el efecto de optimizar los hiperparámetros.
+\end{nota}
+
+% ======================================================================
+\section{Metodología}
+\label{sec:metodologia}
+Se utilizó el conjunto Iris \cite{dua2019uci}, con \textbf{150 ejemplos}, \textbf{4 medidas} (largo y ancho de sépalo y pétalo) y \textbf{3 especies} (setosa, versicolor y virginica) con 50 ejemplos cada una. El experimento, implementado en Python con \texttt{scikit-learn} \cite{scikitlearn2011}, siguió estos pasos:
+
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Preparación.} Se dividieron los datos en 70\,\% para entrenar y 30\,\% para probar (45 flores de prueba), manteniendo la proporción de clases, y se estandarizaron las variables (la escala se calculó solo con el entrenamiento).
+  \item \textbf{Línea base.} Se entrenaron los tres modelos con sus valores \textbf{por defecto}: KNN con $k=5$; SVM con kernel RBF, $C=1$ y $\gamma$ automático; y un Árbol de Decisión sin límite de profundidad.
+  \item \textbf{Optimización.} Con \textbf{búsqueda en rejilla} y validación cruzada de 5 particiones se buscaron los mejores hiperparámetros de cada modelo (Tabla~\ref{tab:grids}).
+  \item \textbf{Comparación.} Ambas versiones (base y optimizada) se evaluaron sobre el mismo conjunto de prueba, midiendo exactitud, precisión, sensibilidad, especificidad y Macro F1.
+\end{enumerate}
+
+\begin{table}[H]
+\centering
+\caption{Hiperparámetros explorados en la búsqueda en rejilla.}
+\label{tab:grids}
+\begin{tabular}{ll}
+\toprule
+\textbf{Modelo} & \textbf{Hiperparámetros probados} \\
+\midrule
+KNN   & número de vecinos (1--20), tipo de peso, métrica de distancia \\
+SVM   & kernel (lineal, RBF, polinomial), $C$, $\gamma$ \\
+Árbol & criterio (Gini/entropía), profundidad máxima, mínimos para dividir y por hoja \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{resultado}
+La búsqueda seleccionó: \textbf{KNN} con $k=14$ y distancia euclidiana; \textbf{SVM} con kernel lineal y $C=100$; y \textbf{Árbol de Decisión} con criterio Gini y profundidad máxima de 3.
+\end{resultado}
+
+% ======================================================================
+\section{Resultados y comparación}
+\label{sec:resultados}
+
+\subsection{Efecto en la validación cruzada}
+La optimización mejoró la validación cruzada de los tres modelos, que es justamente lo que la búsqueda intenta maximizar (Tabla~\ref{tab:cv}).
+
+\begin{table}[H]
+\centering
+\caption{Exactitud por validación cruzada (entrenamiento) antes y después de optimizar.}
+\label{tab:cv}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Modelo} & \textbf{Por defecto} & \textbf{Optimizado} & \textbf{Cambio} \\
+\midrule
+KNN   & 0.9524 & 0.9810 & $+0.0286$ \\
+SVM   & 0.9714 & 0.9810 & $+0.0096$ \\
+Árbol & 0.9429 & 0.9524 & $+0.0095$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Desempeño en el conjunto de prueba}
+La Tabla~\ref{tab:comparativa} reúne todas las métricas sobre los datos de prueba y la Figura~\ref{fig:barras} las resume visualmente.
+
+\begin{table}[H]
+\centering
+\caption{Comparación de métricas sobre el conjunto de prueba (45 instancias).}
+\label{tab:comparativa}
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Modelo} & \textbf{Accuracy} & \textbf{Precisión} & \textbf{Sensibilidad} & \textbf{Especificidad} & \textbf{Macro F1} \\
+\midrule
+KNN base       & 0.9111 & 0.9298 & 0.9111 & 0.9556 & 0.9095 \\
+KNN optimizado & \textbf{0.9556} & \textbf{0.9608} & \textbf{0.9556} & \textbf{0.9778} & \textbf{0.9554} \\
+\midrule
+SVM base       & 0.9333 & 0.9345 & 0.9333 & 0.9667 & 0.9333 \\
+SVM optimizado & 0.9333 & 0.9444 & 0.9333 & 0.9667 & 0.9327 \\
+\midrule
+Árbol base       & 0.9111 & 0.9155 & 0.9111 & 0.9556 & 0.9107 \\
+Árbol optimizado & \textbf{0.9778} & \textbf{0.9792} & \textbf{0.9778} & \textbf{0.9889} & \textbf{0.9778} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.82\textwidth]{comparativa_barras.png}
+\caption{Exactitud de cada modelo antes y después de optimizar.}
+\label{fig:barras}
+\end{figure}
+
+El \textbf{Árbol de Decisión} fue el que más mejoró: su exactitud subió de 91.11\,\% a 97.78\,\%. La razón es clara: por defecto el árbol crecía sin límite y se sobreajustaba; al fijar una profundidad máxima de 3 se quedó con las reglas más generales y acertó más en datos nuevos. \textbf{KNN} también mejoró de forma notable (de 91.11\,\% a 95.56\,\%) al usar más vecinos ($k=14$ en lugar de 5), lo que suaviza su decisión. \textbf{SVM}, en cambio, ya partía de un desempeño alto y se mantuvo en 93.33\,\%: su validación cruzada mejoró un poco, pero en la prueba el resultado fue casi el mismo, señal de que su configuración inicial ya era buena para este problema.
+
+\subsection{Matrices de confusión}
+Las matrices de confusión muestran dónde acierta y dónde falla cada modelo. En las tres (Figuras~\ref{fig:cmknn}, \ref{fig:cmsvm} y~\ref{fig:cmdt}) la especie setosa se clasifica perfectamente, porque es muy distinta de las otras dos. Toda la dificultad está entre versicolor y virginica, que se parecen más. La optimización reduce esas confusiones en KNN y en el árbol; en SVM se mueven mínimamente.
+
+\begin{figure}[H]
+\centering
+\subfigure[KNN base]{\includegraphics[width=0.43\textwidth]{cm_knn_base.png}}
+\hfill
+\subfigure[KNN optimizado]{\includegraphics[width=0.43\textwidth]{cm_knn_opt.png}}
+\caption{Matrices de confusión de KNN antes y después de optimizar.}
+\label{fig:cmknn}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfigure[SVM base]{\includegraphics[width=0.43\textwidth]{cm_svm_base.png}}
+\hfill
+\subfigure[SVM optimizado]{\includegraphics[width=0.43\textwidth]{cm_svm_opt.png}}
+\caption{Matrices de confusión de SVM antes y después de optimizar.}
+\label{fig:cmsvm}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfigure[Árbol base]{\includegraphics[width=0.43\textwidth]{cm_dt_base.png}}
+\hfill
+\subfigure[Árbol optimizado]{\includegraphics[width=0.43\textwidth]{cm_dt_opt.png}}
+\caption{Matrices de confusión del Árbol de Decisión antes y después de optimizar.}
+\label{fig:cmdt}
+\end{figure}
+
+% ======================================================================
+\section{Conclusiones}
+\label{sec:conclusiones}
+La investigación mostró que optimizar un modelo supervisado va más allá de entrenarlo: implica preparar bien los datos, elegir sus hiperparámetros con métodos como la búsqueda en rejilla y validar esa elección con validación cruzada para evitar el sobreajuste.
+
+Al aplicarlo sobre Iris, los tres modelos mejoraron su validación cruzada, pero el efecto en la prueba fue distinto en cada caso. El \textbf{Árbol de Decisión} tuvo la mejora más grande (de 91.11\,\% a 97.78\,\%), un ejemplo muy claro de cómo limitar la complejidad de un modelo reduce el sobreajuste. \textbf{KNN} también mejoró de forma apreciable, mientras que \textbf{SVM} prácticamente se mantuvo porque ya partía de una buena configuración.
+
+La principal lección es que la optimización \textbf{sí ayuda, pero su impacto depende del modelo y de qué tan ajustada estaba su configuración inicial}: un modelo que ya funciona bien deja poco margen de mejora, mientras que uno mal configurado (como el árbol sin podar) puede ganar mucho. Por eso, más importante que optimizar a ciegas es medir, comparar y entender por qué cambia el desempeño de cada modelo.
+
+\newpage
+\bibliographystyle{apalike}
+\bibliography{bibs/referencias}
+\addcontentsline{toc}{section}{Bibliografía}
+\end{document}

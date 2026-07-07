@@ -1,0 +1,38 @@
+\begin{thebibliography}{}
+
+\bibitem[Cortes and Vapnik, 1995]{cortes1995svm}
+Cortes, C. and Vapnik, V. (1995).
+\newblock Support-vector networks.
+\newblock {\em Machine Learning}, 20(3):273--297.
+
+\bibitem[Cover and Hart, 1967]{cover1967knn}
+Cover, T.~M. and Hart, P.~E. (1967).
+\newblock Nearest neighbor pattern classification.
+\newblock {\em IEEE Transactions on Information Theory}, 13(1):21--27.
+
+\bibitem[James et~al., 2013]{james2013introduction}
+James, G., Witten, D., Hastie, T., and Tibshirani, R. (2013).
+\newblock {\em An Introduction to Statistical Learning with Applications in
+  {R}}.
+\newblock Springer, New York.
+
+\bibitem[Mowforth and Shepherd, 1987]{statlog_vehicle}
+Mowforth, P. and Shepherd, B. (1987).
+\newblock {Statlog (Vehicle Silhouettes)} data set.
+\newblock UCI Machine Learning Repository.
+\newblock Consultado el 25 de junio de 2026.
+
+\bibitem[Pedregosa et~al., 2011]{scikitlearn2011}
+Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel,
+  O., Blondel, M., Prettenhofer, P., Weiss, R., Dubourg, V., Vanderplas, J.,
+  Passos, A., Cournapeau, D., Brucher, M., Perrot, M., and Duchesnay, E.
+  (2011).
+\newblock Scikit-learn: Machine learning in {P}ython.
+\newblock {\em Journal of Machine Learning Research}, 12:2825--2830.
+
+\bibitem[Siebert, 1987]{siebert1987vehicle}
+Siebert, J.~P. (1987).
+\newblock Vehicle recognition using rule based methods.
+\newblock Turing Institute Research Memorandum TIRM-87-018.
+
+\end{thebibliography}

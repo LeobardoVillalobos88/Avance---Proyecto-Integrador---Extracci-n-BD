@@ -1,0 +1,88 @@
+\begin{titlepage}
+
+\newcommand{\programa}{Ingeniería en Desarrollo y Gestión de Software}
+\newcommand{\materia}{Extracción del conocimiento en Bases de datos}
+\newcommand{\profesor}{VIRNA VIRIDIANA VELA RINCÓN}
+\newcommand{\grupo}{9\textsuperscript{o} C}
+\newcommand{\ciudad}{Emiliano Zapata, Morelos, México.}
+
+% Fondo decorativo con TikZ
+\begin{tikzpicture}[remember picture, overlay]
+    % Franja superior
+    \fill[azulutez] (current page.north west) rectangle ([yshift=-2.5cm]current page.north east);
+    % Franja inferior
+    \fill[azulutez] (current page.south west) rectangle ([yshift=1.5cm]current page.south east);
+    % Línea decorativa
+    \draw[grisinstitucional, line width=2pt] ([yshift=-2.5cm]current page.north west) -- ([yshift=-2.5cm]current page.north east);
+\end{tikzpicture}
+
+\vspace*{1cm}
+
+% Logo centrado
+\begin{center}
+\includegraphics[width=10cm]{portada/logo_utez.png}\\[1cm]
+\end{center}
+
+\center
+
+% Encabezado institucional mejorado
+\textsc{\Large\color{azulutez} \programa}\\[0.4cm]
+\textsc{\large\color{grisinstitucional} \materia}\\[0.8cm]
+
+% Título con caja estilizada
+\begin{tcolorbox}[
+    enhanced,
+    colback=fondoclaro,
+    colframe=azulutez,
+    boxrule=2pt,
+    arc=4mm,
+    width=0.9\textwidth,
+    halign=center,
+    top=12pt,
+    bottom=12pt
+]
+\makeatletter
+{\huge\bfseries\color{azulutez} \@title}
+\makeatother
+\end{tcolorbox}
+
+\vspace{0.6cm}
+
+% Sección de autores mejorada
+\textsc{\large\color{azulutez} Presentan:}\\[0.4cm]
+\begin{tcolorbox}[
+    enhanced,
+    colback=white,
+    colframe=grisinstitucional,
+    boxrule=0.5pt,
+    arc=2mm,
+    width=0.75\textwidth,
+    halign=center,
+    top=8pt,
+    bottom=8pt
+]
+{\normalsize
+\textsc{Arias Hernández José}\\[2pt]
+\textsc{Bertadillo Villalobos Leobardo Daniel}\\[2pt]
+\textsc{Paredes Domínguez Jassiel}\\[2pt]
+\textsc{Aguilar García Ángel Gabriel}\\[2pt]
+\textsc{Torres Galván Alejandro Aldahir}
+}
+\end{tcolorbox}
+
+\vspace{0.5cm}
+
+% Grupo
+\textsc{\large\color{grisinstitucional} Grupo: \grupo}\\[0.6cm]
+
+% Bloque de profesora
+{\normalsize
+\textcolor{azulutez}{\textbf{Profesora:}}\\
+\profesor}
+
+\vfill
+
+% Pie de página
+{\normalsize\color{grisinstitucional} \ciudad}
+
+\end{titlepage}

@@ -1,0 +1,456 @@
+\documentclass[11pt,letterpaper,twoside]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,mexico]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+\usepackage{hyperref}
+\hypersetup{colorlinks=false}
+\usepackage{lscape}
+\usepackage{subfigure}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{float}
+\usepackage[colorinlistoftodos]{todonotes}
+
+% Paquetes adicionales para mejorar portada e introducción
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable,theorems}
+\usepackage{tikz}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{colortbl}
+
+% Ruta de las figuras generadas por el script de Python
+\graphicspath{{img/}}
+
+% Definición de colores institucionales
+\definecolor{azulutez}{RGB}{0,51,102}
+\definecolor{grisinstitucional}{RGB}{89,89,89}
+\definecolor{fondoclaro}{RGB}{245,247,250}
+\definecolor{verderesultado}{RGB}{0,102,51}
+\definecolor{naranjaejercicio}{RGB}{204,102,0}
+
+% Definición de entornos tcolorbox
+
+% Entorno: Definición
+\newtcolorbox[auto counter,number within=section]{definicion}[1][]{
+    enhanced,
+    colback=fondoclaro,
+    colframe=azulutez,
+    coltitle=white,
+    fonttitle=\bfseries,
+    title=Definición~\thetcbcounter\ifstrempty{#1}{}{: #1},
+    boxrule=1pt,
+    arc=2mm,
+    left=8pt,
+    right=8pt,
+    top=6pt,
+    bottom=6pt,
+    breakable
+}
+
+% Entorno: Teorema
+\newtcolorbox[auto counter,number within=section]{teorema}[1][]{
+    enhanced,
+    colback=fondoclaro,
+    colframe=grisinstitucional,
+    coltitle=white,
+    fonttitle=\bfseries,
+    title=Teorema~\thetcbcounter\ifstrempty{#1}{}{: #1},
+    boxrule=1pt,
+    arc=2mm,
+    left=8pt,
+    right=8pt,
+    top=6pt,
+    bottom=6pt,
+    breakable
+}
+
+% Entorno: Ejercicio
+\newtcolorbox[auto counter,number within=section]{ejercicio}[1][]{
+    enhanced,
+    colback=white,
+    colframe=naranjaejercicio,
+    coltitle=white,
+    fonttitle=\bfseries,
+    title=Ejercicio~\thetcbcounter\ifstrempty{#1}{}{: #1},
+    boxrule=1pt,
+    arc=2mm,
+    left=8pt,
+    right=8pt,
+    top=6pt,
+    bottom=6pt,
+    breakable
+}
+
+% Entorno: Problema
+\newtcolorbox[auto counter,number within=section]{problema}[1][]{
+    enhanced,
+    colback=white,
+    colframe=azulutez,
+    coltitle=white,
+    fonttitle=\bfseries,
+    title=Problema~\thetcbcounter\ifstrempty{#1}{}{#1},
+    boxrule=1pt,
+    arc=2mm,
+    left=8pt,
+    right=8pt,
+    top=6pt,
+    bottom=6pt,
+    breakable
+}
+
+% Entorno: Resultado (caja destacada para respuestas)
+\newtcolorbox{resultado}{
+    enhanced,
+    colback=verderesultado!5,
+    colframe=verderesultado,
+    boxrule=1.5pt,
+    arc=2mm,
+    left=8pt,
+    right=8pt,
+    top=6pt,
+    bottom=6pt
+}
+
+% Entorno: Nota
+\newtcolorbox{nota}[1][]{
+    enhanced,
+    colback=fondoclaro,
+    colframe=grisinstitucional!50,
+    coltitle=grisinstitucional,
+    fonttitle=\bfseries,
+    title=\ifstrempty{#1}{Nota}{#1},
+    boxrule=0.5pt,
+    arc=2mm,
+    left=8pt,
+    right=8pt,
+    top=6pt,
+    bottom=6pt,
+    breakable
+}
+
+% Entorno: Técnica
+\newtcolorbox{tecnica}[1][]{
+    enhanced,
+    colback=azulutez!5,
+    colframe=azulutez!70,
+    coltitle=azulutez,
+    fonttitle=\bfseries,
+    title=\ifstrempty{#1}{Técnica}{#1},
+    boxrule=0.5pt,
+    arc=2mm,
+    left=8pt,
+    right=8pt,
+    top=6pt,
+    bottom=6pt,
+    breakable
+}
+
+\usepackage{anysize}
+\marginsize{2cm}{2cm}{1cm}{2cm}
+
+\title{T2. KNN y SVM}
+
+\author{Leobardo Daniel Bertadillo Villalobos}
+
+\renewcommand{\baselinestretch}{1.15}
+\begin{document}
+\parindent=0mm
+\input{portada/title.tex}
+\newpage
+
+\setcounter{page}{1}
+\pagenumbering{roman}
+
+% Resumen
+\begin{tcolorbox}[
+    enhanced,
+    colback=fondoclaro,
+    colframe=azulutez,
+    coltitle=white,
+    fonttitle=\large\bfseries,
+    title=Resumen,
+    boxrule=1.5pt,
+    arc=3mm,
+    left=10pt,
+    right=10pt,
+    top=8pt,
+    bottom=8pt
+]
+\noindent En este trabajo se prueba si una computadora puede reconocer el tipo de vehículo a partir de la forma de su silueta. Para ello se usó el conjunto de datos \textit{Statlog (Vehicle Silhouettes)}, que tiene \textbf{846 ejemplos}, cada uno descrito con \textbf{18 medidas} de su silueta y agrupado en \textbf{4 tipos} de vehículo en cantidades parejas. Se compararon dos algoritmos muy conocidos: \textbf{K-Vecinos más Cercanos (KNN)} y \textbf{Máquinas de Vectores de Soporte (SVM)}. Después de poner todas las medidas en una escala comparable y separar los datos para entrenar y para probar, se eligió el mejor valor de $k$ para KNN y la mejor configuración para SVM. El mejor KNN ($k=7$) acertó el \textbf{70.28\%} de los casos (con un \textit{Macro} F1 de \textbf{0.6985}), mientras que SVM obtuvo el mejor resultado con un \textbf{86.32\%} de aciertos (\textit{Macro} F1 de \textbf{0.8646}). Al revisar dónde se equivocan, se observa que casi todos los errores ocurren entre los dos tipos de automóvil, cuyas siluetas son muy parecidas.
+
+\vspace{0.4cm}
+\textcolor{azulutez}{\textbf{Palabras clave:}} clasificación multiclase, KNN, SVM, kernel RBF, estandarización, validación cruzada, matriz de confusión.
+\end{tcolorbox}
+\newpage
+
+\renewcommand{\contentsname}{Índice}
+\tableofcontents
+\newpage
+
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+% ======================================================================
+\section{Introducción y Marco Teórico}
+\label{sec:introduccion}
+
+\subsection{Contexto del problema}
+Enseñar a una computadora a reconocer la forma de un objeto a partir de números que describen su figura es una tarea muy común en el análisis de datos. En este trabajo se resuelve un problema de \textbf{clasificación con varias categorías} usando el conjunto de datos \textit{Statlog (Vehicle Silhouettes)}. En él, cada vehículo se describe con 18 medidas tomadas de su silueta (qué tan compacta es, qué tan redonda, su tamaño, etc.), y la meta es adivinar a cuál de los cuatro tipos de vehículo pertenece usando solo esas medidas.
+
+Lo interesante de este conjunto es que dos de las cuatro clases son automóviles de pasajeros con siluetas casi idénticas, mientras que las otras dos son vehículos más grandes y con formas más fáciles de distinguir. Por eso resulta un buen caso para poner a prueba qué tan bien logran separar los datos distintos algoritmos cuando las clases se parecen mucho entre sí.
+
+\subsection{K-Vecinos más Cercanos (KNN)}
+La idea de KNN es muy sencilla: no aprende un modelo durante el entrenamiento, simplemente guarda todos los datos. Cuando llega un caso nuevo $\mathbf{x}$ que quiere clasificar, mide qué tan lejos está de todos los ejemplos guardados, se queda con los $k$ más cercanos (sus ``vecinos'') y le asigna la clase que más se repite entre ellos; es decir, decide por \textbf{votación mayoritaria}.
+
+La forma más común de medir esa cercanía es la \textbf{distancia euclidiana}, que no es otra cosa que la distancia ``en línea recta'' entre dos puntos. Para dos observaciones $\mathbf{x}=(x_1,\dots,x_p)$ y $\mathbf{x}'=(x'_1,\dots,x'_p)$ con $p$ características se calcula así:
+\begin{equation}
+d(\mathbf{x},\mathbf{x}') = \sqrt{\sum_{j=1}^{p}\left(x_j - x'_j\right)^2}.
+\label{eq:euclidiana}
+\end{equation}
+
+La clase final $\hat{y}$ es simplemente la más frecuente entre los $k$ vecinos más cercanos $N_k(\mathbf{x})$:
+\begin{equation}
+\hat{y} = \arg\max_{c}\ \sum_{i \in N_k(\mathbf{x})} \mathbb{1}\big(y_i = c\big),
+\label{eq:votacion}
+\end{equation}
+donde $\mathbb{1}(\cdot)$ es la función indicadora que vale 1 cuando la condición se cumple y 0 en caso contrario.
+
+\begin{nota}[Impacto de la elección de $k$]
+El valor de $k$ cambia mucho el resultado. Si $k$ es muy pequeño (por ejemplo $k=1$), el modelo se fija solo en el vecino más cercano y se vuelve muy sensible al ruido, equivocándose ante datos atípicos. Si $k$ es demasiado grande, toma en cuenta vecinos lejanos que poco tienen que ver con el caso y pierde detalle. Por eso conviene probar varios valores y quedarse con el que mejor funcione.
+\end{nota}
+
+Como esta distancia depende del tamaño de los números, KNN es muy sensible a la escala de las variables: si una medida toma valores mucho más grandes que las demás, terminaría mandando en el cálculo. Por eso es importante \textbf{estandarizar} las variables (ponerlas en una escala comparable) antes de usar el algoritmo.
+
+\subsection{Máquinas de Vectores de Soporte (SVM)}
+SVM busca trazar la mejor línea (o, cuando hay más variables, el mejor \textbf{plano de separación}) que divida a las clases. De todas las separaciones posibles, elige la que deja \textbf{el mayor espacio libre} a ambos lados, es decir, la que queda lo más lejos posible de los ejemplos de cada clase. Los pocos ejemplos que caen justo en el borde y que definen esa frontera se llaman \textbf{vectores de soporte}; los demás no afectan el resultado.
+
+Cuando las clases se pueden separar con una línea recta, esa frontera se escribe como $\mathbf{w}^\top \mathbf{x} + b = 0$, y entrenar el modelo equivale a resolver:
+\begin{equation}
+\min_{\mathbf{w},\,b}\ \frac{1}{2}\,\lVert \mathbf{w} \rVert^2
+\quad \text{sujeto a} \quad
+y_i\left(\mathbf{w}^\top \mathbf{x}_i + b\right) \ge 1, \quad i=1,\dots,n.
+\label{eq:svm}
+\end{equation}
+En la práctica los datos casi nunca se separan de forma perfecta, así que se añade un parámetro $C$ que deja al modelo tolerar algunos errores con tal de lograr una separación más amplia y general. Un $C$ grande castiga más los errores; uno pequeño es más permisivo.
+
+\begin{tecnica}[El truco del kernel (\textit{Kernel Trick})]
+Muchas veces las clases no se pueden separar con una simple línea recta. En esos casos, SVM ``lleva'' los datos a un espacio con más dimensiones, donde sí es posible separarlos. Lo ingenioso es que no necesita hacer esa transformación de forma directa (sería muy costosa): usa una \textbf{función kernel} que calcula el resultado como si los datos ya estuvieran en ese nuevo espacio. Una de las más usadas es el kernel \textit{Radial Basis Function} (RBF):
+\begin{equation}
+K(\mathbf{x},\mathbf{x}') = \exp\!\left(-\gamma\,\lVert \mathbf{x}-\mathbf{x}' \rVert^2\right), \quad \gamma > 0.
+\label{eq:rbf}
+\end{equation}
+El parámetro $\gamma$ controla qué tanto influye cada ejemplo: valores altos hacen fronteras más ajustadas a los datos y valores bajos, fronteras más suaves.
+\end{tecnica}
+
+% ======================================================================
+\section{Metodología y Desarrollo}
+\label{sec:metodologia}
+
+\subsection{Descripción del conjunto de datos}
+El archivo \texttt{vehicle.csv} tiene \textbf{846 filas} y \textbf{19 columnas}: 18 medidas numéricas de la silueta del vehículo y una columna \texttt{target} con el tipo de vehículo al que pertenece. La Tabla~\ref{tab:clases} muestra cuántos ejemplos hay de cada clase; como están bastante parejas, la exactitud (el porcentaje de aciertos) es una buena forma de medir el desempeño. Además, el conjunto no tiene datos faltantes.
+
+\begin{table}[H]
+\centering
+\caption{Distribución de instancias por clase en \texttt{vehicle.csv}.}
+\label{tab:clases}
+\begin{tabular}{ccc}
+\toprule
+\textbf{Clase} & \textbf{Instancias} & \textbf{Proporción} \\
+\midrule
+1 & 212 & 25.06\,\% \\
+2 & 217 & 25.65\,\% \\
+3 & 218 & 25.77\,\% \\
+4 & 199 & 23.52\,\% \\
+\midrule
+\textbf{Total} & \textbf{846} & \textbf{100\,\%} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+La Figura~\ref{fig:distribucion} confirma visualmente este balance entre las cuatro clases.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{distribucion_clases.png}
+\caption{Distribución de instancias por clase.}
+\label{fig:distribucion}
+\end{figure}
+
+\begin{nota}[Importancia de la estandarización]
+Las 18 medidas usan rangos muy distintos: algunas llegan a valores de cientos y otras apenas a decenas. Como KNN y SVM se basan en distancias, las variables con números más grandes pesarían más que las demás sin ninguna razón. Para evitarlo se aplicó \textbf{estandarización}: a cada variable se le resta su promedio y se divide entre su desviación, dejándolas a todas en una escala comparable para que aporten por igual.
+\end{nota}
+
+\subsection{Diseño experimental}
+El experimento se implementó en Python con la biblioteca \texttt{scikit-learn}. El procedimiento fue el siguiente:
+
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{División de los datos.} Se separó el conjunto en \textbf{75\,\% para entrenar} (634 ejemplos) y \textbf{25\,\% para probar} (212 ejemplos), cuidando que ambas partes mantuvieran la misma proporción de clases (partición \textbf{estratificada}). Se fijó una semilla aleatoria para que el experimento dé siempre el mismo resultado al repetirlo.
+  \item \textbf{Estandarización.} La escala se calculó \textbf{solo con los datos de entrenamiento} y luego se aplicó a los de prueba, para que el modelo no reciba de antemano ninguna información de los datos con los que será evaluado.
+  \item \textbf{Selección de $k$ en KNN.} Se evaluaron valores de $k$ de 1 a 30, estimando para cada uno la exactitud mediante \textbf{validación cruzada de 5 particiones} sobre el conjunto de entrenamiento. Se eligió el $k$ con mayor exactitud media (Figura~\ref{fig:seleccionk}).
+  \item \textbf{Selección del kernel en SVM.} Se realizó una \textbf{búsqueda en rejilla} (\textit{grid search}) con validación cruzada de 5 particiones sobre los kernels lineal, polinomial y RBF, explorando distintos valores de $C$, $\gamma$ y grado del polinomio.
+  \item \textbf{Evaluación final.} Ya con su mejor configuración, ambos modelos se probaron con los datos de prueba ---que no habían visto antes--- midiendo exactitud, \textit{Macro} F1, resultados por clase, matriz de confusión y tiempos de entrenamiento y predicción.
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.78\textwidth]{seleccion_k.png}
+\caption{Exactitud media por validación cruzada en función de $k$. El máximo se alcanza en $k=7$.}
+\label{fig:seleccionk}
+\end{figure}
+
+\begin{resultado}
+La validación cruzada determinó $k=7$ como mejor configuración para KNN. La búsqueda en rejilla seleccionó para SVM un \textbf{kernel RBF} con $C=100$ y $\gamma=0.01$, que superó claramente a las alternativas lineal y polinomial.
+\end{resultado}
+
+% ======================================================================
+\section{Resultados y Discusión}
+\label{sec:resultados}
+
+\subsection{Comparación de desempeño}
+La Tabla~\ref{tab:comparativa} resume el rendimiento de ambos clasificadores sobre el conjunto de prueba. SVM supera a KNN en más de 16 puntos porcentuales de exactitud y en una diferencia equivalente de \textit{Macro} F1, lo que indica un mejor desempeño no solo global sino también de manera equilibrada entre las cuatro clases.
+
+\begin{table}[H]
+\centering
+\caption{Comparación de KNN y SVM sobre el conjunto de prueba (212 instancias).}
+\label{tab:comparativa}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Modelo} & \textbf{Accuracy} & \textbf{Macro F1} & \textbf{T. entren. (ms)} & \textbf{T. predic. (ms)} \\
+\midrule
+KNN ($k=7$)            & 0.7028 & 0.6985 & 2.66  & 33.19 \\
+SVM (RBF)              & \textbf{0.8632} & \textbf{0.8646} & 20.19 & 8.07 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Los tiempos muestran cómo trabaja cada método. KNN casi no tarda en ``entrenar'' (solo guarda los datos), pero es el más lento al predecir, porque tiene que comparar cada caso nuevo contra todos los ejemplos guardados. SVM tarda más en entrenar, pero después predice más rápido, ya que solo usa los vectores de soporte. Como el conjunto es pequeño, los tiempos son de milisegundos y conviene verlos como una comparación \textbf{relativa}, no como valores absolutos.
+
+La Tabla~\ref{tab:porclase} desglosa el F1 por clase, evidenciando que ambos modelos clasifican casi a la perfección las clases 3 y 4, mientras que la mayor dificultad se concentra en las clases 1 y 2.
+
+\begin{table}[H]
+\centering
+\caption{F1-Score por clase para cada modelo.}
+\label{tab:porclase}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Modelo} & \textbf{Clase 1} & \textbf{Clase 2} & \textbf{Clase 3} & \textbf{Clase 4} \\
+\midrule
+KNN ($k=7$) & 0.4646 & 0.5586 & 0.9138 & 0.8571 \\
+SVM (RBF)   & 0.7568 & 0.7500 & 0.9818 & 0.9697 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Análisis de las matrices de confusión}
+Las Figuras~\ref{fig:cmknn} y~\ref{fig:cmsvm} presentan las matrices de confusión de cada modelo. En ambas, la diagonal principal (aciertos) es dominante para las clases 3 y 4, pero el bloque correspondiente a las clases 1 y 2 concentra la mayoría de los errores.
+
+\begin{figure}[H]
+\centering
+\subfigure[KNN ($k=7$)]{\includegraphics[width=0.46\textwidth]{cm_knn.png}\label{fig:cmknn}}
+\hfill
+\subfigure[SVM (RBF)]{\includegraphics[width=0.46\textwidth]{cm_svm.png}\label{fig:cmsvm}}
+\caption{Matrices de confusión sobre el conjunto de prueba.}
+\label{fig:matrices}
+\end{figure}
+
+En el caso de KNN, de las 53 instancias de la clase 1, \textbf{25 se confundieron con la clase 2}, y de las 54 de la clase 2, \textbf{20 se asignaron a la clase 1}. SVM reduce sustancialmente ese error cruzado (11 y 15 confusiones respectivamente), aunque sigue siendo su principal fuente de fallos. Por el contrario, las clases 3 y 4 se reconocen con muy pocos errores en ambos modelos.
+
+\begin{nota}[Interpretación geométrica de las confusiones]
+Esto tiene sentido por el tipo de datos: las clases 1 y 2 son \textbf{automóviles de pasajeros} con siluetas casi iguales, así que sus medidas se mezclan y cuesta separarlas. En cambio, las clases 3 y 4 (vehículos más grandes, como un autobús y una furgoneta) tienen formas muy distintas y se reconocen sin problema. Como KNN se guía solo por la cercanía entre ejemplos, esa mezcla lo afecta mucho; SVM, gracias al kernel RBF, traza fronteras más flexibles que separan mejor esos casos parecidos, aunque sin quitar del todo la confusión.
+\end{nota}
+
+\subsection{Cálculo manual de las métricas}
+Las métricas anteriores también pueden obtenerse \textbf{manualmente} a partir de la matriz de confusión. Para un problema de varias clases, cada clase se evalúa bajo el esquema \textit{una contra el resto} (\textit{one-vs-rest}), definiendo para la clase analizada cuatro cantidades: verdaderos positivos (TP), falsos negativos (FN), falsos positivos (FP) y verdaderos negativos (TN). Con ellas se aplican las fórmulas vistas en clase:
+
+\begin{equation}
+\text{Exactitud} = \frac{TP+TN}{TP+TN+FP+FN}, \qquad
+\text{Precisión} = \frac{TP}{TP+FP},
+\label{eq:acc_prec}
+\end{equation}
+\begin{equation}
+\text{Sensibilidad (\textit{recall})} = \frac{TP}{TP+FN}, \qquad
+\text{Especificidad} = \frac{TN}{TN+FP}.
+\label{eq:rec_spec}
+\end{equation}
+
+\subsubsection{Desarrollo para el modelo SVM}
+A modo de ejemplo, se desarrolla el cálculo para la \textbf{clase 1} del modelo SVM. De su matriz de confusión se obtiene $TP=42$, $FN=11$, $FP=16$ y $TN=143$:
+
+\begin{resultado}
+\[
+\text{Precisión} = \frac{42}{42+16} = 0.7241, \qquad
+\text{Sensibilidad} = \frac{42}{42+11} = 0.7925,
+\]
+\[
+\text{Especificidad} = \frac{143}{143+16} = 0.8994.
+\]
+\end{resultado}
+
+Aplicando el mismo procedimiento a las cuatro clases se obtiene la Tabla~\ref{tab:manualsvm}. La exactitud global se calcula como el total de aciertos (la diagonal de la matriz) entre el total de instancias: $\tfrac{42+39+54+48}{212}=\tfrac{183}{212}=0.8632$.
+
+\begin{table}[H]
+\centering
+\caption{Cálculo manual de métricas por clase para el modelo SVM (esquema una contra el resto).}
+\label{tab:manualsvm}
+\begin{tabular}{cccccccc}
+\toprule
+\textbf{Clase} & \textbf{TP} & \textbf{FN} & \textbf{FP} & \textbf{TN} & \textbf{Precisión} & \textbf{Sensibilidad} & \textbf{Especificidad} \\
+\midrule
+1 & 42 & 11 & 16 & 143 & 0.7241 & 0.7925 & 0.8994 \\
+2 & 39 & 15 & 11 & 147 & 0.7800 & 0.7222 & 0.9304 \\
+3 & 54 &  1 &  1 & 156 & 0.9818 & 0.9818 & 0.9936 \\
+4 & 48 &  2 &  1 & 161 & 0.9796 & 0.9600 & 0.9938 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Desarrollo para el modelo KNN}
+El mismo procedimiento se aplica al modelo KNN. Para su \textbf{clase 1} la matriz de confusión arroja $TP=23$, $FN=30$, $FP=23$ y $TN=136$:
+
+\begin{resultado}
+\[
+\text{Precisión} = \frac{23}{23+23} = 0.5000, \qquad
+\text{Sensibilidad} = \frac{23}{23+30} = 0.4340,
+\]
+\[
+\text{Especificidad} = \frac{136}{136+23} = 0.8553.
+\]
+\end{resultado}
+
+El detalle por clase se muestra en la Tabla~\ref{tab:manualknn}. Su exactitud global es $\tfrac{23+31+53+42}{212}=\tfrac{149}{212}=0.7028$. En ambos modelos los valores obtenidos a mano coinciden con los entregados por la implementación, lo que verifica la consistencia de los resultados.
+
+\begin{table}[H]
+\centering
+\caption{Cálculo manual de métricas por clase para el modelo KNN (esquema una contra el resto).}
+\label{tab:manualknn}
+\begin{tabular}{cccccccc}
+\toprule
+\textbf{Clase} & \textbf{TP} & \textbf{FN} & \textbf{FP} & \textbf{TN} & \textbf{Precisión} & \textbf{Sensibilidad} & \textbf{Especificidad} \\
+\midrule
+1 & 23 & 30 & 23 & 136 & 0.5000 & 0.4340 & 0.8553 \\
+2 & 31 & 23 & 26 & 132 & 0.5439 & 0.5741 & 0.8354 \\
+3 & 53 &  2 &  8 & 149 & 0.8689 & 0.9636 & 0.9490 \\
+4 & 42 &  8 &  6 & 156 & 0.8750 & 0.8400 & 0.9630 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Al comparar ambas tablas se ve con números lo mismo que mostraban las matrices de confusión: las clases 1 y 2 tienen la precisión y la sensibilidad más bajas porque se confunden entre sí, y justo ahí es donde SVM le gana a KNN (por ejemplo, la sensibilidad de la clase 1 sube de 0.4340 a 0.7925). Las clases 3 y 4 obtienen valores cercanos a 1 en ambos modelos. La especificidad se mantiene alta en todas las clases porque, al haber cuatro categorías parejas, la mayoría de los ejemplos pertenece a ``las otras clases'' y son fáciles de descartar.
+
+% ======================================================================
+\section{Conclusiones}
+\label{sec:conclusiones}
+
+El experimento muestra que, para el conjunto \textit{Statlog (Vehicle Silhouettes)}, \textbf{SVM con kernel RBF le gana claramente a KNN}, con una exactitud de 86.32\,\% frente a 70.28\,\% y un \textit{Macro} F1 de 0.8646 frente a 0.6985. La razón es que SVM puede trazar fronteras curvas y más flexibles, algo decisivo cuando varias clases se parecen mucho, como pasa con los dos tipos de automóvil.
+
+KNN, aunque es simple y rápido de entrenar, tiene dos debilidades con este tipo de datos: se confunde cuando las clases se parecen demasiado y se vuelve lento al predecir conforme crecen los datos, porque debe compararse contra todos los ejemplos. SVM, en cambio, tarda más en entrenar pero predice rápido y separa las clases de forma más sólida.
+
+En la práctica, los dos algoritmos necesitan lo mismo para funcionar bien: \textbf{estandarizar} las variables. La forma de trabajar ---repartir bien los datos, elegir los parámetros con validación cruzada y evaluar con datos nuevos--- permitió comparar los modelos de manera justa. En resumen, para este tipo de problemas SVM es la opción más confiable, mientras que KNN sigue siendo un buen punto de partida por lo fácil que es de entender y aplicar.
+
+\end{document}
